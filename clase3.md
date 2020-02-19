@@ -87,4 +87,81 @@
     "AGSService";"0";"417";"67899392";"15659008";"3981312";"16488";;;;;;;;"Process";"8";;;;;;"417";"4140";".";"0";"";;;;;"16488";"16488";"3981312";"3981312";"147392";"147392";"5971968";"5971968";"22687744";"22687744";"127795200";"127795200";;;"3981312";"3981312";;"AGSService";;"True";"0";"System.Diagnostics.ProcessStartInfo";;;"System.Diagnostics.ProcessThreadCollection";;;
     ```
 
-6.
+6.  Identifique un cmdlet que permita generar un número aleatorio.
+
+    El cmdlet _get-random_ devuelve un numero entero pseudo aleatorio de 32 bits.
+
+    ```powershel
+    get-random
+    ```
+
+7.  Identifique un cmdlet que despliegue la fecha y hora actuales.
+
+    El cmdlet _get-date_ devuelve un objeto que representa la fecha y hora actuales, este puede ser representado en varios formatos como Windows o UNIX.
+
+    ```
+    get-date
+    ```
+
+8.  Qué tipo de objeto produce el cmdlet de la pregunta 7?
+
+    usando el cmdlet gm podemos obtener los elementos que componen el objeto y el tipo, como se ve a continuacion el objeto es parte del paquete System y su tipo es DateTime
+
+    ```
+    get-date | gm
+
+    TypeName: System.DateTime
+    ```
+
+9.  Usando el cmdlet de la pregunta 7 y select-object, despliegue solamente el día de la semana, así:
+
+    ```powershell
+    DayOfWeek
+    ---------
+    Thursday
+    ```
+
+    Para obtner este resultado lo hacemos con la siguiente linea:
+
+    ```powershell
+    get-date | select -property "dayofweek"
+    ```
+
+10. Identifique un cmdlet que muestre información acerca de parches (hotfixes) instalados en el sistema
+
+    El cmdlet que nos retorna una lista con los parches del sistema es:
+
+    ```powershell
+    get-hotfix
+    ```
+
+11. Empleando el cmdlet de la pregunta 10, muestre una lista de parches instalados. Luego extienda la expresión para ordenar la lista por fecha de instalación, y muestre en pantalla únicamente la fecha de instalación, el usuario que instaló el parche, y el ID del parche. Recuerde examinar los nombres de las propiedades.
+
+    ```powershell
+    get-hotfix | sort -property installedon | select -property installedon, installedby, hotfixid
+    ```
+
+    Resultado
+
+    ```powershell
+    InstalledOn               installedby         hotfixid
+    -----------               -----------         --------
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4520390
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4516115
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4515530
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4524569
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4525419
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4521863
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4503308
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4497727
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4517245
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4508433
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4515383
+    6/12/2019 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4509096
+    16/01/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4528759
+    3/02/2020 12:00:00 a. m.  NT AUTHORITY\SYSTEM KB4534132
+    11/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4538674
+    11/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4532693
+    11/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4537759
+    12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524244
+    ```
