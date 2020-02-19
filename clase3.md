@@ -55,7 +55,7 @@
     Ejeplo: El siguiente comando pedira confirmacion
 
     ```powershell
-    ps | epcsv -delimiter ";" example.csv -noclobber -Confirm
+    ps | epcsv -delimiter ";" example.csv -Confirm
     ```
 
     La salida seria:
@@ -165,3 +165,47 @@
     11/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4537759
     12/02/2020 12:00:00 a. m. NT AUTHORITY\SYSTEM KB4524244
     ```
+
+12. Complemente la solución a la pregunta 11, para que el sistema ordene los resultados por la descripción del parche, e incluya en el listado la descripción, el ID del parche, y la fecha de instalación. Escriba los resultados a un archivo HTML.
+
+    ```powershell
+    get-hotFix | sort -property description | select -property hotfixid,description,installedon  | convertto-html | Out-File hotfix.html
+    ```
+
+    Resultado
+
+    ```powershell
+    cat .\hotfix.html
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <title>HTML TABLE</title>
+    </head><body>
+    <table>
+    <colgroup><col/><col/><col/></colgroup>
+    <tr><th>hotfixid</th><th>description</th><th>InstalledOn</th></tr>
+    <tr><td>KB4521863</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4520390</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4538674</td><td>Security Update</td><td>11/02/2020 12:00:00 a. m.</td></tr>
+    <tr><td>KB4524244</td><td>Security Update</td><td>12/02/2020 12:00:00 a. m.</td></tr>
+    <tr><td>KB4528759</td><td>Security Update</td><td>16/01/2020 12:00:00 a. m.</td></tr>
+    <tr><td>KB4525419</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4524569</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4537759</td><td>Security Update</td><td>11/02/2020 12:00:00 a. m.</td></tr>
+    <tr><td>KB4503308</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4497727</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4516115</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4508433</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4515530</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4515383</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4509096</td><td>Security Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    <tr><td>KB4532693</td><td>Update</td><td>11/02/2020 12:00:00 a. m.</td></tr>
+    <tr><td>KB4534132</td><td>Update</td><td>3/02/2020 12:00:00 a. m.</td></tr>
+    <tr><td>KB4517245</td><td>Update</td><td>6/12/2019 12:00:00 a. m.</td></tr>
+    </table>
+    </body></html>
+    ```
+
+```
+
+```
