@@ -206,6 +206,67 @@
     </body></html>
     ```
 
-```
+13. Muestre una lista de las 50 entradas más nuevas del log de eventos System. Ordene la lista de modo que las entradas más antiguas aparezcan primero; las entradas producidas al mismo tiempo deben ordenarse por número índice. Muestre el número índice, la hora y la fuente para cada entrada. Escriba esta información en un archivo de texto plano.
 
-```
+    ```powershell
+    get-eventlog -newest 50 -logname system | sort -property timegenerated -descending | sort -property index | select -property index, timegenerated, source > punto13.txt
+    ```
+
+    Resultado
+
+    ```powershell
+    cat .\punto13.txt
+
+    Index TimeGenerated             Source
+    ----- -------------             ------
+    33624 19/02/2020 12:34:37 p. m. Netwtw06
+    33625 19/02/2020 12:34:37 p. m. Netwtw06
+    33626 19/02/2020 12:34:37 p. m. Netwtw06
+    33627 19/02/2020 12:34:37 p. m. Netwtw06
+    33628 19/02/2020 12:34:37 p. m. Netwtw06
+    33629 19/02/2020 12:34:37 p. m. Netwtw06
+    33630 19/02/2020 12:34:37 p. m. Netwtw06
+    33631 19/02/2020 12:34:37 p. m. Netwtw06
+    33632 19/02/2020 12:34:37 p. m. Netwtw06
+    33633 19/02/2020 12:34:37 p. m. Netwtw06
+    33634 19/02/2020 12:34:37 p. m. Netwtw06
+    33635 19/02/2020 12:34:37 p. m. Netwtw06
+    33636 19/02/2020 12:34:37 p. m. Netwtw06
+    33637 19/02/2020 12:34:37 p. m. Netwtw06
+    33638 19/02/2020 12:34:37 p. m. Netwtw06
+    33639 19/02/2020 12:34:37 p. m. Netwtw06
+    33640 19/02/2020 12:34:38 p. m. Netwtw06
+    33641 19/02/2020 12:34:45 p. m. Microsoft-Windows-DNS-Client
+    33642 19/02/2020 12:34:58 p. m. Microsoft-Windows-Kernel-Power
+    33643 19/02/2020 12:36:02 p. m. Netwtw06
+    33644 19/02/2020 12:36:02 p. m. Netwtw06
+    33645 19/02/2020 12:36:02 p. m. Netwtw06
+    33646 19/02/2020 12:36:02 p. m. Netwtw06
+    33647 19/02/2020 12:36:02 p. m. Netwtw06
+    33648 19/02/2020 12:36:05 p. m. Netwtw06
+    33649 19/02/2020 12:36:05 p. m. Netwtw06
+    33650 19/02/2020 12:36:05 p. m. Netwtw06
+    33651 19/02/2020 12:36:05 p. m. Netwtw06
+    33652 19/02/2020 12:36:05 p. m. Microsoft-Windows-WLAN-AutoConfig
+    33653 19/02/2020 12:36:05 p. m. Service Control Manager
+    33654 19/02/2020 12:36:09 p. m. Netwtw06
+    33655 19/02/2020 1:24:53 p. m.  Microsoft-Windows-Kernel-Power
+    33656 19/02/2020 1:24:55 p. m.  Microsoft-Windows-Kernel-Power
+    33657 19/02/2020 1:32:43 p. m.  Microsoft-Windows-Kernel-General
+    33658 19/02/2020 1:32:43 p. m.  Microsoft-Windows-Kernel-Power
+    33659 19/02/2020 1:32:44 p. m.  Netwtw06
+    33660 19/02/2020 1:32:44 p. m.  Netwtw06
+    33661 19/02/2020 1:32:45 p. m.  Microsoft-Windows-Power-Troubleshooter
+    33662 19/02/2020 1:32:53 p. m.  Microsoft-Windows-NDIS
+    33663 19/02/2020 1:32:53 p. m.  Netwtw06
+    33664 19/02/2020 1:32:53 p. m.  Netwtw06
+    33665 19/02/2020 1:32:53 p. m.  Netwtw06
+    33666 19/02/2020 1:59:22 p. m.  Netwtw06
+    33667 19/02/2020 1:59:25 p. m.  Netwtw06
+    33668 19/02/2020 1:59:25 p. m.  Netwtw06
+    33669 19/02/2020 1:59:25 p. m.  Netwtw06
+    33670 19/02/2020 1:59:25 p. m.  Netwtw06
+    33671 19/02/2020 1:59:25 p. m.  Microsoft-Windows-WLAN-AutoConfig
+    33672 19/02/2020 1:59:26 p. m.  Service Control Manager
+    33673 19/02/2020 1:59:29 p. m.  Netwtw06
+    ```
