@@ -1,0 +1,1226 @@
+﻿**********************
+Inicio de la transcripción de Windows PowerShell
+Hora de inicio: 20200324100325
+Nombre de usuario: DESKTOP-F1LUQO0\Carlos Eduardo
+Usuario RunAs: DESKTOP-F1LUQO0\Carlos Eduardo
+Nombre de la configuración: 
+Máquina: DESKTOP-F1LUQO0 (Microsoft Windows NT 10.0.18363.0)
+Aplicación host: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Id. de proceso: 8584
+PSVersion: 5.1.18362.628
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.628
+BuildVersion: 10.0.18362.628
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+La transcripción ha comenzado. El archivo de salida es .\clase5\transcript.txt
+PS D:\U\Sistemas Operacionales\git\clase4-5> gwmi -li | ? __class -like '*networkadapter*'
+
+
+   NameSpace: ROOT\cimv2
+
+Name                                Methods              Properties
+----                                -------              ----------
+CIM_NetworkAdapter                  {SetPowerState, R... {AutoSense, Availability, Caption, ConfigManagerErrorCode...}
+Win32_NetworkAdapter                {SetPowerState, R... {AdapterType, AdapterTypeId, AutoSense, Availability...}
+Win32_NetworkAdapterSetting         {}                   {Element, Setting}
+Win32_NetworkAdapterConfiguration   {EnableDHCP, Rene... {ArpAlwaysSourceRoute, ArpUseEtherSNAP, Caption, DatabasePath...}
+Win32_PerfFormattedData_Ethernet... {}                   {BytesDropped, BytesReceivedPersec, BytesSentPersec, Caption...}
+Win32_PerfRawData_EthernetPerfPr... {}                   {BytesDropped, BytesReceivedPersec, BytesSentPersec, Caption...}
+Win32_PerfFormattedData_NvspNicD... {}                   {Caption, Description, Frequency_Object, Frequency_PerfTime...}
+Win32_PerfRawData_NvspNicDropRea... {}                   {Caption, Description, Frequency_Object, Frequency_PerfTime...}
+Win32_PerfFormattedData_NvspNicS... {}                   {BroadcastPacketsReceivedPersec, BroadcastPacketsSentPersec, BytesPersec, BytesReceivedPersec...}
+Win32_PerfRawData_NvspNicStats_H... {}                   {BroadcastPacketsReceivedPersec, BroadcastPacketsSentPersec, BytesPersec, BytesReceivedPersec...}
+Win32_PerfFormattedData_NvspNicV... {}                   {Caption, Description, Frequency_Object, Frequency_PerfTime...}
+Win32_PerfRawData_NvspNicVRSSSta... {}                   {Caption, Description, Frequency_Object, Frequency_PerfTime...}
+Win32_PerfFormattedData_Tcpip_Ne... {}                   {BytesReceivedPersec, BytesSentPersec, BytesTotalPersec, Caption...}
+Win32_PerfRawData_Tcpip_NetworkA... {}                   {BytesReceivedPersec, BytesSentPersec, BytesTotalPersec, Caption...}
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> gwmi Win32_NetworkAdapter | gm | ? {$_.membertype -like "method"}
+
+
+   TypeName: System.Management.ManagementObject#root\cimv2\Win32_NetworkAdapter
+
+Name          MemberType Definition
+----          ---------- ----------
+Disable       Method     System.Management.ManagementBaseObject Disable()
+Enable        Method     System.Management.ManagementBaseObject Enable()
+Reset         Method     System.Management.ManagementBaseObject Reset()
+SetPowerState Method     System.Management.ManagementBaseObject SetPowerState(System.UInt16 PowerState, System.String Time)
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> gwmi Win32_NetworkAdapterConfiguration | gm | ? {$_.membertype -like "method"}
+
+
+   TypeName: System.Management.ManagementObject#root\cimv2\Win32_NetworkAdapterConfiguration
+
+Name                        MemberType Definition
+----                        ---------- ----------
+DisableIPSec                Method     System.Management.ManagementBaseObject DisableIPSec()
+EnableDHCP                  Method     System.Management.ManagementBaseObject EnableDHCP()
+EnableIPSec                 Method     System.Management.ManagementBaseObject EnableIPSec(System.String[] IPSecPermitTCPPorts, System.String[] IPSecPermitUDPPorts, System.String[] IPSe...
+EnableStatic                Method     System.Management.ManagementBaseObject EnableStatic(System.String[] IPAddress, System.String[] SubnetMask)
+ReleaseDHCPLease            Method     System.Management.ManagementBaseObject ReleaseDHCPLease()
+RenewDHCPLease              Method     System.Management.ManagementBaseObject RenewDHCPLease()
+SetDNSDomain                Method     System.Management.ManagementBaseObject SetDNSDomain(System.String DNSDomain)
+SetDNSServerSearchOrder     Method     System.Management.ManagementBaseObject SetDNSServerSearchOrder(System.String[] DNSServerSearchOrder)
+SetDynamicDNSRegistration   Method     System.Management.ManagementBaseObject SetDynamicDNSRegistration(System.Boolean FullDNSRegistrationEnabled, System.Boolean DomainDNSRegistrationE...
+SetGateways                 Method     System.Management.ManagementBaseObject SetGateways(System.String[] DefaultIPGateway, System.UInt16[] GatewayCostMetric)
+SetIPConnectionMetric       Method     System.Management.ManagementBaseObject SetIPConnectionMetric(System.UInt32 IPConnectionMetric)
+SetIPXFrameTypeNetworkPairs Method     System.Management.ManagementBaseObject SetIPXFrameTypeNetworkPairs(System.String[] IPXNetworkNumber, System.UInt32[] IPXFrameType)
+SetTcpipNetbios             Method     System.Management.ManagementBaseObject SetTcpipNetbios(System.UInt32 TcpipNetbiosOptions)
+SetWINSServer               Method     System.Management.ManagementBaseObject SetWINSServer(System.String WINSPrimaryServer, System.String WINSSecondaryServer)
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> gwmi -li | ? __class -like "*QuickFixEngineering*"
+
+
+   NameSpace: ROOT\cimv2
+
+Name                                Methods              Properties
+----                                -------              ----------
+Win32_QuickFixEngineering           {}                   {Caption, CSName, Description, FixComments...}
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> gwmi Win32_QuickFixEngineering
+
+Source        Description      HotFixID      InstalledBy          InstalledOn
+------        -----------      --------      -----------          -----------
+DESKTOP-F1... Update           KB4537572     NT AUTHORITY\SYSTEM  28/02/2020 12:00:00 a. m.
+DESKTOP-F1... Update           KB4513661                          7/10/2019 12:00:00 a. m.
+DESKTOP-F1... Security Update  KB4516115                          7/10/2019 12:00:00 a. m.
+DESKTOP-F1... Update           KB4517245                          7/10/2019 12:00:00 a. m.
+DESKTOP-F1... Security Update  KB4521863                          7/10/2019 12:00:00 a. m.
+DESKTOP-F1... Security Update  KB4537759     NT AUTHORITY\SYSTEM  28/02/2020 12:00:00 a. m.
+DESKTOP-F1... Security Update  KB4538674     NT AUTHORITY\SYSTEM  28/02/2020 12:00:00 a. m.
+DESKTOP-F1... Security Update  KB4541338     NT AUTHORITY\SYSTEM  12/03/2020 12:00:00 a. m.
+DESKTOP-F1... Update           KB4551762     NT AUTHORITY\SYSTEM  12/03/2020 12:00:00 a. m.
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> diff -ReferenceObject (gwmi Win32_QuickFixEngineering) -DifferenceObject (Get-Hotfix)
+PS D:\U\Sistemas Operacionales\git\clase4-5> gwmi win32_service | fl status, startmode, startname
+
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Disabled
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : NT Authority\NetworkService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Auto
+startname : NT Authority\NetworkService
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : UNKNOWN
+startmode : Unknown
+startname :
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : UNKNOWN
+startmode : Unknown
+startname :
+
+status    : OK
+startmode : Disabled
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Auto
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT Authority\NetworkService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Auto
+startname : localSystem
+
+status    : OK
+startmode : Disabled
+startname : localSystem
+
+status    : OK
+startmode : Disabled
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Disabled
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Disabled
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT Authority\NetworkService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Disabled
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Disabled
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : NT Authority\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\NetworkService
+
+status    : OK
+startmode : Manual
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : NT AUTHORITY\LocalService
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : localSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Auto
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname : LocalSystem
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Auto
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Auto
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Manual
+startname :
+
+status    : OK
+startmode : Auto
+startname :
+
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> get-cimclass -names root\SecurityCenter2 | ? cimclassname -like '*product*'
+
+
+   NameSpace: ROOT/SecurityCenter2
+
+CimClassName                        CimClassMethods      CimClassProperties
+------------                        ---------------      ------------------
+AntiVirusProduct                    {}                   {displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe...}
+AntiSpywareProduct                  {}                   {displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe...}
+FirewallProduct                     {}                   {displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe...}
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> get-cimclass -names root\SecurityCenter2 -class AntiVirusProduct
+
+
+   NameSpace: ROOT/SecurityCenter2
+
+CimClassName                        CimClassMethods      CimClassProperties
+------------                        ---------------      ------------------
+AntiVirusProduct                    {}                   {displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe...}
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> get-cimclass -names root\SecurityCenter2 -class AntiSpywareProduct
+
+
+   NameSpace: ROOT/SecurityCenter2
+
+CimClassName                        CimClassMethods      CimClassProperties
+------------                        ---------------      ------------------
+AntiSpywareProduct                  {}                   {displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe...}
+
+
+PS D:\U\Sistemas Operacionales\git\clase4-5> Stop-Transcript
+**********************
+Fin de la transcripción de Windows PowerShell
+Hora de finalización: 20200324100604
+**********************
